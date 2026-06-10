@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lumis — sistema de gestão lunar para monitoramento de recursos e bem-estar." />
+  <title>Lumis — Colônia Artêmis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;900&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="app-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="app-header" data-header hidden>
+    <button class="brand" type="button" data-nav="login" aria-label="Voltar para a tela de login">
+      <img src="./assets/logos/logo.svg" alt="" />
+      <span>Colônia Artêmis · Ciclo 14 · 06:22 UT</span>
+    </button>
+
+    <nav class="top-nav" aria-label="Navegação principal">
+      <button class="icon-btn" type="button" data-nav="hub" aria-label="Menu principal"><img src="./assets/icons/menu.svg" alt="" /></button>
+      <button class="icon-btn" type="button" data-nav="notifications" aria-label="Notificações"><img src="./assets/icons/notifications.svg" alt="" /></button>
+      <button class="icon-btn" type="button" data-nav="settings" aria-label="Configurações"><img src="./assets/icons/settings.svg" alt="" /></button>
+      <button class="icon-btn" type="button" data-nav="profile" aria-label="Perfil"><img src="./assets/icons/profile.svg" alt="" /></button>
+      <button class="icon-btn icon-btn--danger" type="button" data-nav="login" aria-label="Sair"><img src="./assets/icons/logout.svg" alt="" /></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="screen screen--login is-active" id="login" data-screen aria-labelledby="login-title">
+      <p class="login-meta login-meta--left">Colônia Artêmis</p>
+      <p class="login-meta login-meta--right">Ciclo 14 · 06:22 UT</p>
+
+      <div class="login-center">
+        <img class="login-wordmark" src="./assets/logos/wordmark.svg" alt="Lumis" />
+        <button class="fingerprint" type="button" data-nav="hub" aria-label="Acessar em modo demonstração por biometria">
+          <span class="fingerprint__pulse"></span>
+          <span class="fingerprint__ring ring-1"></span>
+          <span class="fingerprint__ring ring-2"></span>
+          <span class="fingerprint__ring ring-3"></span>
+          <span class="fingerprint__core"></span>
+        </button>
+        <h1 id="login-title">Realize a sua biometria<br />para acessar a plataforma.</h1>
+        <button class="text-link" type="button" data-nav="hub">Modo demonstração</button>
+      </div>
+    </section>
+
+    <section class="screen" id="hub" data-screen aria-labelledby="hub-title">
+      <div class="hub page-frame">
+        <section class="hub-hero">
+          <h1 id="hub-title">boa tarde, Kai.</h1>
+          <p>Ciclo 14 · tudo dentro da normalidade.</p>
+        </section>
+
+        <section class="notice-list" aria-label="Alertas principais">
+          <article class="notice">
+            <span class="dot dot--danger"></span>
+            <div>
+              <h2>Energia crítica no Módulo C — reserva em 28%. Redistribuição recomendada antes de 20h UT.</h2>
+              <small>há 12 minutos</small>
+            </div>
+            <button type="button" data-nav="dashboard">ver dashboard →</button>
+          </article>
+          <article class="notice">
+            <span class="dot dot--therapy"></span>
+            <div>
+              <h2>Seu encontro terapêutico semanal é hoje às 10h UT — Dr. Yuna Park, Módulo A.</h2>
+              <small>lembrete · hoje</small>
+            </div>
+            <button type="button" data-nav="therapy">confirmar →</button>
+          </article>
+        </section>
+
+        <section class="hub-cards" aria-label="Acessos do sistema">
+          <article class="hub-card hub-card--pending hub-card--checkin" id="checkin-hub-card" data-nav="checkin" tabindex="0" role="button">
+            <span class="card-icon icon-red" id="hub-checkin-icon">♙</span>
+            <h2>Check-in</h2>
+            <p>Registre como você está antes de começar o ciclo.</p>
+            <small class="badge badge--danger" id="checkin-badge">● não feito hoje</small>
+          </article>
+          <article class="hub-card hub-card--dashboard" data-nav="dashboard" tabindex="0" role="button">
+            <span class="card-icon icon-teal">▦</span>
+            <h2>Dashboard</h2>
+            <p>Recursos da colônia em tempo real.</p>
+            <small class="badge badge--danger">1 alerta crítico</small>
+          </article>
+          <article class="hub-card" data-nav="notifications" tabindex="0" role="button">
+            <span class="card-icon icon-yellow">⌂</span>
+            <h2>Notificações</h2>
+            <p>2 não lidas. Alerta de energia e saúde mental.</p>
+            <small class="badge badge--warning">2 não lidas</small>
+          </article>
+          <article class="hub-card hub-card--profile" data-nav="profile" tabindex="0" role="button">
+            <span class="card-icon icon-blue">♙</span>
+            <h2>Perfil</h2>
+            <p>Prontidão 81 · sono 6h42 · check-in ok.</p>
+            <small class="badge badge--ok">tudo normal</small>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <section class="screen" id="dashboard" data-screen aria-labelledby="dash-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <div class="dashboard page-frame">
+        <section class="status">
+          <h1 id="dash-title">Status geral</h1>
+          <span></span>
+          <strong>Estável</strong>
+        </section>
+
+        <section class="resources" aria-labelledby="res-title">
+          <h2 class="section-label" id="res-title">Recursos principais</h2>
+          <div class="resources-grid">
+            <article class="resource-card res-oxygen" data-resource="oxygen" tabindex="0" role="button">
+              <h3>Oxigênio</h3><strong>O₂</strong><div class="res-bar"><span style="width:87%"></span></div><p>87%</p><small>● Normal</small>
+            </article>
+            <article class="resource-card res-water" data-resource="water" tabindex="0" role="button">
+              <h3>Água</h3><strong>H₂O</strong><div class="res-bar"><span style="width:62%"></span></div><p>62%</p><small>● Normal</small>
+            </article>
+            <article class="resource-card res-food" data-resource="food" tabindex="0" role="button">
+              <h3>Alimentos</h3><strong>Kcal</strong><div class="res-bar"><span style="width:45%"></span></div><p>45%</p><small>● Atenção</small>
+            </article>
+            <article class="resource-card res-energy is-critical" data-resource="energy" tabindex="0" role="button">
+              <h3>Energia</h3><strong>kWh</strong><div class="res-bar"><span style="width:28%"></span></div><p>28%</p><small>● Crítico</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="dash-bottom">
+          <article class="colony-data">
+            <h2>Dados da colônia</h2>
+            <dl>
+              <div><dt>População ativa</dt><dd>247 pessoas</dd></div>
+              <div><dt>Módulos operacionais</dt><dd>18 / 20</dd></div>
+              <div><dt>Temperatura ext.</dt><dd>−43 °C</dd></div>
+              <div><dt>Próximo ciclo</dt><dd class="gold">em 14h 22min</dd></div>
+            </dl>
+          </article>
+          <div class="dash-alerts">
+            <article class="dash-alert critical"><h2>● Energia crítica — Módulo C</h2><p>Reserva abaixo de 30%. Redistribuição recomendada.</p></article>
+            <article class="dash-alert ok"><h2>Sistema de suporte</h2><p>Todos os sistemas de vida operacionais.</p></article>
+            <article class="dash-alert"><h2>Mensagem do sistema</h2><p><em>“Bom ciclo, Kai. O módulo B está dentro da normalidade.”</em></p></article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="screen" id="resource" data-screen aria-labelledby="resource-title">
+      <button class="back" type="button" data-nav="dashboard">‹ dashboard</button>
+      <article class="resource-detail" data-resource-detail>
+        <p class="detail-label" data-detail-label>Energia</p>
+        <h1 id="resource-title" data-detail-value>28%</h1>
+        <div class="detail-meter"><span data-detail-meter style="width:28%"></span></div>
+        <p class="detail-meta"><span data-rate>−4.2% /h</span><span data-time>~7h no nível atual</span></p>
+        <p class="detail-subtitle">Últimas 24h</p>
+        <div class="history-bars" data-history aria-label="histórico das últimas 24 horas"></div>
+        <section class="recommend">
+          <h2>Para você, Kai</h2>
+          <p data-rec-1>fase noturna ativa — sem captação solar por 14h</p>
+          <p data-rec-2>módulo C em consumo elevado — redistribuição recomendada</p>
+          <p data-rec-3>priorize sistemas de suporte de vida</p>
+        </section>
+        <div class="actions-grid">
+          <section><h2>Conservar</h2><button>↓ standby</button><button>↓ iluminação</button><button>↓ secundários</button></section>
+          <section><h2>Aumentar</h2><button>↑ painéis</button><button>↑ reserva</button><button>↑ transf. B2</button></section>
+        </div>
+      </article>
+    </section>
+
+    <section class="screen" id="notifications" data-screen aria-labelledby="notif-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <article class="panel panel-notifications">
+        <h1 id="notif-title">Notificações</h1>
+        <ul>
+          <li><span class="dot dot--danger"></span><strong>Energia crítica no Módulo C — reserva em 28%. Redistribuição recomendada antes de 20h UT.</strong><small>há 12 minutos</small></li>
+          <li><span class="dot dot--warning"></span><strong>Seu pico de consumo começa em 40 minutos. Considere adiantar o treino para as 18h.</strong><small>há 28 minutos</small></li>
+          <li><span class="dot dot--water"></span><strong>Filtro de reaproveitamento de água do Módulo B operando a 94% — dentro do normal.</strong><small>há 1 hora</small></li>
+          <li><span class="dot dot--ok"></span><strong>Check-in do ciclo 13 registrado. Sua prontidão estava em 78 — ligeiramente abaixo da média.</strong><small>ciclo anterior</small></li>
+          <li><span class="dot dot--oxygen"></span><strong>Módulo A retomou operações completas. Produção de oxigênio normalizada.</strong><small>há 3 horas</small></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="screen" id="settings" data-screen aria-labelledby="settings-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <article class="panel settings-panel">
+        <h1 id="settings-title">Configurações gerais</h1>
+        <section><h2>Notificações</h2><p><span>Alertas críticos</span><strong>ativo</strong></p><p><span>Lembretes de check-in</span><strong>ativo</strong></p><p><span>Mensagens do sistema</span><em>silenciado</em></p></section>
+        <section><h2>Dispositivos conectados</h2><p><span>Oura Ring Gen 4</span><strong>conectado</strong></p><p><span>Sensor Módulo C3</span><strong>conectado</strong></p></section>
+        <section><h2>Sistema</h2><p><span>Idioma</span><em>Português</em></p><p><span>Fuso horário</span><em>UT+0</em></p><p><span>Versão</span><em>lumis 1.4.2</em></p></section>
+        <button class="logout-text" type="button" data-nav="login">← sair da conta</button>
+      </article>
+    </section>
+
+    <section class="screen" id="profile" data-screen aria-labelledby="profile-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <article class="profile-page">
+        <header class="profile-top">
+          <div class="avatar">K</div><div><h1 id="profile-title">Kai Mori</h1><p>Engenharia de sistemas · Colônia Artêmis</p><small>Ciclo 3 de 18 · chegou em 06.Mar.2094</small></div>
+        </header>
+        <section><h2>Saúde — ciclo anterior</h2><div class="profile-grid"><article><small>sono total</small><strong>6h 42min</strong><span>score 74 · regular</span></article><article><small>acordou</small><strong>06:18 UT</strong><span>30min antes do alarme</span></article><article><small>freq. cardíaca</small><strong>62 bpm</strong><span>repouso · normal</span></article><article><small>prontidão</small><strong class="gold">81</strong><span>boa · acima da média</span></article></div></section>
+        <section>
+          <h2>Bem-estar — últimos 7 ciclos</h2>
+          <div class="wellness">
+            <div>
+              <p>humor</p>
+              <span class="spark pink" aria-hidden="true">
+                <i style="height:48%"></i><i style="height:58%"></i><i style="height:40%"></i><i style="height:68%"></i><i style="height:55%"></i><i style="height:60%"></i><i style="height:72%"></i>
+              </span>
+              <small>↑ leve melhora</small>
+            </div>
+            <div>
+              <p>disposição</p>
+              <span class="spark blue" aria-hidden="true">
+                <i style="height:62%"></i><i style="height:45%"></i><i style="height:58%"></i><i style="height:40%"></i><i style="height:52%"></i><i style="height:75%"></i><i style="height:68%"></i>
+              </span>
+              <small>↑ subiu nos últimos 3 ciclos</small>
+            </div>
+            <div>
+              <p>foco</p>
+              <span class="spark purple" aria-hidden="true">
+                <i style="height:40%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:72%"></i><i style="height:54%"></i><i style="height:66%"></i><i style="height:70%"></i>
+              </span>
+              <small>estável</small>
+            </div>
+          </div>
+        </section>
+        <section><h2>Padrões de consumo</h2><div class="profile-grid"><article><small>● energia</small><strong class="gold">−12%</strong><span>abaixo da média</span></article><article><small>● água</small><strong class="blue">+4%</strong><span>acima da média</span></article><article><small>● oxigênio</small><strong class="teal">−3%</strong><span>dentro do padrão</span></article><article><small>● alimento</small><strong class="green">−8%</strong><span>abaixo da média</span></article></div></section>
+        <section><h2>Rotina registrada</h2><ul class="routine"><li>acorda ~06:18 UT · treino às 21h · jantar às 20h</li><li>pico de consumo: 19h–22h UT</li><li>treino usa +8% energia — considere adiantar</li></ul></section>
+        <section><h2>Configurações</h2><p class="profile-config">notificações ativas <span>idioma: português</span> <span>fuso: UT+0</span> <button type="button" data-nav="settings">configurações →</button></p></section>
+      </article>
+    </section>
+
+    <section class="screen" id="checkin" data-screen aria-labelledby="checkin-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <section class="checkin-a" data-checkin-a>
+        <h1 id="checkin-title">bem vindo, Kai</h1>
+        <button type="button" data-open-checkin>Como você <strong>está</strong> hoje?</button>
+        <span></span>
+      </section>
+      <form class="checkin-card" data-checkin-card>
+        <p>Check-in · ciclo 14</p>
+        <label>
+          <strong>Como está seu humor agora?</strong>
+          <span>Estado emocional no início do ciclo</span>
+          <input type="range" value="65" min="0" max="100" />
+          <small class="range-legend"><span>mal</span><span>neutro</span><span>ótimo</span></small>
+        </label>
+        <label>
+          <strong>Quanta energia você sente?</strong>
+          <span>Disposição física e mental para o dia</span>
+          <input type="range" value="55" min="0" max="100" />
+          <small class="range-legend"><span>esgotada</span><span>razoável</span><span>cheia</span></small>
+        </label>
+        <label>
+          <strong>Como está seu foco?</strong>
+          <span>Capacidade de concentração hoje</span>
+          <input type="range" value="70" min="0" max="100" />
+          <small class="range-legend"><span>dispersa</span><span>ok</span><span>concentrada</span></small>
+        </label>
+        <button class="sr-submit" type="submit">Finalizar check-in</button>
+      </form>
+    </section>
+
+    <section class="screen" id="therapy" data-screen aria-labelledby="therapy-title">
+      <button class="back" type="button" data-nav="hub">‹ menu principal</button>
+      <article class="panel therapy-panel">
+        <h1 id="therapy-title">Encontro terapêutico</h1>
+        <p>Dr. Yuna Park · Módulo A · Sala 3</p>
+        <strong>10:00 UT</strong>
+        <div><button data-nav="hub">Confirmar presença</button><button data-nav="hub">Reagendar</button></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
